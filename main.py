@@ -71,8 +71,6 @@ if page == 'Home':
             progress_bar.progress(20+attempt*10)
             if isinstance(recommended_movies, dict):
                 break  # Exit loop if successful
-            else:
-                st.write(recommended_movies)
 
         if isinstance(recommended_movies, dict):
             st.json(recommended_movies)
