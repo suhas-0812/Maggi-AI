@@ -66,13 +66,13 @@ if page == 'Home':
         status_text.text("Finding Movies Using Gemini")
         progress_bar.progress(20)
 
-        recommended_movies=generate_movie_recommendation_prompt(input_string)
-
         for attempt in range(3):
             recommended_movies = generate_movie_recommendation_prompt(input_string)
             progress_bar.progress(20+attempt*10)
             if isinstance(recommended_movies, dict):
                 break  # Exit loop if successful
+            else:
+                st.write(recommended_movies)
 
         if isinstance(recommended_movies, dict):
             st.json(recommended_movies)
